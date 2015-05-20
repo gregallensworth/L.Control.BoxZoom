@@ -22,7 +22,7 @@ L.Control.BoxZoom = L.Control.extend({
         this.controlDiv           = L.DomUtil.create('div', 'leaflet-control-boxzoom');
         this.controlDiv.control   = this;
         this.controlDiv.title     = 'Click here then draw a square on the map, to zoom in to an area';
-        this.controlDiv.innerHTML = '<i class="fa fa-search-plus leaflet-control"></i>';
+        this.controlDiv.innerHTML = ' ';
         L.DomEvent
             .addListener(this.controlDiv, 'mousedown', L.DomEvent.stopPropagation)
             .addListener(this.controlDiv, 'click', L.DomEvent.stopPropagation)

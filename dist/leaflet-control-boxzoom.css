@@ -21,6 +21,5 @@
 }
 
 .leaflet-control-boxzoom.leaflet-control-boxzoom-active {
-    background-color:#444;
-    color: white;
+    background-color:#aaaaaa;
 }
