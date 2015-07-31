@@ -1,5 +1,9 @@
 # L.Control.BoxZoom
-A Leaflet control to do a box zoom. Not everyone knows about holding down Shift, and prefer to have a visible, clickable button to do box zooms.
+A Leaflet control to do a box zoom.
+
+Not everyone knows about holding down Shift, and prefer to have a visible, clickable button to do box zooms.
+
+Live demo: http://gregallensworth.github.io/L.Control.BoxZoom/
 
 # Installation and Example
 For the impatient, copy-and-paste out of the working example, _index.html_
