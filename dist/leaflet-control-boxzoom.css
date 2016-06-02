@@ -23,3 +23,7 @@
 .leaflet-control-boxzoom.leaflet-control-boxzoom-active {
     background-color:#aaaaaa;
 }
+
+.leaflet-container.leaflet-control-boxzoom-active {
+    cursor:crosshair;
+}
