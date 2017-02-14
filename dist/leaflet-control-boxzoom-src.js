@@ -5,7 +5,8 @@
  */
 L.Control.BoxZoom = L.Control.extend({
     options: {
-        position: 'topright'
+        position: 'topright',
+        title: 'Click here then draw a square on the map, to zoom in to an area'
     },
     initialize: function(options) {
         L.setOptions(this, options);
@@ -21,7 +22,7 @@ L.Control.BoxZoom = L.Control.extend({
         // assign this here control as a property of the visible DIV, so we can be more terse when writing click-handlers on that visible DIV
         this.controlDiv           = L.DomUtil.create('div', 'leaflet-control-boxzoom');
         this.controlDiv.control   = this;
-        this.controlDiv.title     = 'Click here then draw a square on the map, to zoom in to an area';
+        this.controlDiv.title     = this.options.title;
         this.controlDiv.innerHTML = ' ';
         L.DomEvent
             .addListener(this.controlDiv, 'mousedown', L.DomEvent.stopPropagation)
