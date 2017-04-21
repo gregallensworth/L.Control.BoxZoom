@@ -57,7 +57,9 @@ L.Control.BoxZoom = L.Control.extend({
         L.DomUtil.addClass(this.controlDiv,'leaflet-control-boxzoom-active');
         this.active = true;
         this.map.dragging.disable();
-        this.map.boxZoom.addHooks();
+        if (!this.options.enableShiftDrag) {
+            this.map.boxZoom.addHooks();
+        }
 
         this.map.on('mousedown', this.handleMouseDown, this);
         this.map.on('boxzoomend', this.setStateOff, this);
@@ -72,7 +74,9 @@ L.Control.BoxZoom = L.Control.extend({
         this.active = false;
         this.map.off('mousedown', this.handleMouseDown, this);
         this.map.dragging.enable();
-        this.map.boxZoom.removeHooks();
+        if (!this.options.enableShiftDrag) {
+            this.map.boxZoom.removeHooks();
+        }
 
         L.DomUtil.removeClass(this.map._container,'leaflet-control-boxzoom-active');
     },
