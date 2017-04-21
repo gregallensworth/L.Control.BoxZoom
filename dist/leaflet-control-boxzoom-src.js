@@ -67,7 +67,7 @@ L.Control.BoxZoom = L.Control.extend({
         this.map.on('mousedown', this.handleMouseDown, this);
         this.map.on('boxzoomend', this.setStateOff, this);
         if (!this.options.keepOn) {
-             this.map.on('boxzoomend', this.setStateOff, this);
+            this.map.on('boxzoomend', this.setStateOff, this);
         }
 
         L.DomUtil.addClass(this.map._container,'leaflet-control-boxzoom-active');
