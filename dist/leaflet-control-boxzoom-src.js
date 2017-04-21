@@ -21,6 +21,9 @@ L.Control.BoxZoom = L.Control.extend({
         // create our button: uses FontAwesome cuz that font is... awesome
         // assign this here control as a property of the visible DIV, so we can be more terse when writing click-handlers on that visible DIV
         this.controlDiv           = L.DomUtil.create('div', 'leaflet-control-boxzoom');
+        if (this.options.divClasses) {
+            L.DomUtil.addClass(this.controlDiv, this.options.divClasses);
+        }
         this.controlDiv.control   = this;
         this.controlDiv.title     = this.options.title;
         this.controlDiv.innerHTML = ' ';
