@@ -21,6 +21,7 @@ Then add the Control to your map:
 
 # Options
 
+* **divClasses** Add classes to the div that holds the Leaflet control.
 * **enableShiftDrag** Enable the original functionality of Leaflet's shift-drag box zoom, in addition to the button.
 * **iconClasses** Any valid classes for an icon element. Used for easily adding a custom icon to the button.
 * **iconColor** Use to set the color of the custom icon. Accepts anything valid for a standard CSS color value, e.g. "black", "#000000", etc. Defaults to "black".
