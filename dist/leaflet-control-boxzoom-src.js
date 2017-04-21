@@ -21,7 +21,9 @@ L.Control.BoxZoom = L.Control.extend({
         // create our button: uses FontAwesome cuz that font is... awesome
         // assign this here control as a property of the visible DIV, so we can be more terse when writing click-handlers on that visible DIV
         this.controlDiv           = L.DomUtil.create('div', 'leaflet-control-boxzoom');
-        if (!this.options.divClasses) {
+
+        // if we're not using an icon, add the background image class
+        if (!this.options.iconClasses) {
             L.DomUtil.addClass(this.controlDiv, 'with-background-image');
         }
         if (this.options.divClasses) {
