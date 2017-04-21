@@ -35,7 +35,7 @@ L.Control.BoxZoom = L.Control.extend({
         // start by toggling our state to off; this disables the boxZoom hooks on the map, in favor of this one
         this.setStateOff();
 
-	if (this.options.iconClasses) {
+        if (this.options.iconClasses) {
             var iconElement = L.DomUtil.create('i', this.options.iconClasses, this.controlDiv);
             if (iconElement) {
                 iconElement.style.color = this.options.iconColor || 'black';
@@ -61,6 +61,9 @@ L.Control.BoxZoom = L.Control.extend({
 
         this.map.on('mousedown', this.handleMouseDown, this);
         this.map.on('boxzoomend', this.setStateOff, this);
+        if (!this.options.keepOn) {
+             this.map.on('boxzoomend', this.setStateOff, this);
+        }
 
         L.DomUtil.addClass(this.map._container,'leaflet-control-boxzoom-active');
     },
