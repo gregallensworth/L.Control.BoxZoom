@@ -21,6 +21,14 @@ L.Control.BoxZoom = L.Control.extend({
         // create our button: uses FontAwesome cuz that font is... awesome
         // assign this here control as a property of the visible DIV, so we can be more terse when writing click-handlers on that visible DIV
         this.controlDiv           = L.DomUtil.create('div', 'leaflet-control-boxzoom');
+
+        // if we're not using an icon, add the background image class
+        if (!this.options.iconClasses) {
+            L.DomUtil.addClass(this.controlDiv, 'with-background-image');
+        }
+        if (this.options.divClasses) {
+            L.DomUtil.addClass(this.controlDiv, this.options.divClasses);
+        }
         this.controlDiv.control   = this;
         this.controlDiv.title     = this.options.title;
         this.controlDiv.innerHTML = ' ';
@@ -35,6 +43,17 @@ L.Control.BoxZoom = L.Control.extend({
         // start by toggling our state to off; this disables the boxZoom hooks on the map, in favor of this one
         this.setStateOff();
 
+        if (this.options.iconClasses) {
+            var iconElement = L.DomUtil.create('i', this.options.iconClasses, this.controlDiv);
+            if (iconElement) {
+                iconElement.style.color = this.options.iconColor || 'black';
+                iconElement.style.textAlign = 'center';
+                iconElement.style.verticalAlign = 'middle';
+            } else {
+                console.log('Unable to create element for icon');
+            }
+        }
+
         // done!
         return this.controlDiv;
     },
@@ -46,10 +65,15 @@ L.Control.BoxZoom = L.Control.extend({
         L.DomUtil.addClass(this.controlDiv,'leaflet-control-boxzoom-active');
         this.active = true;
         this.map.dragging.disable();
-        this.map.boxZoom.addHooks();
+        if (!this.options.enableShiftDrag) {
+            this.map.boxZoom.addHooks();
+        }
 
         this.map.on('mousedown', this.handleMouseDown, this);
         this.map.on('boxzoomend', this.setStateOff, this);
+        if (!this.options.keepOn) {
+            this.map.on('boxzoomend', this.setStateOff, this);
+        }
 
         L.DomUtil.addClass(this.map._container,'leaflet-control-boxzoom-active');
     },
@@ -58,7 +82,9 @@ L.Control.BoxZoom = L.Control.extend({
         this.active = false;
         this.map.off('mousedown', this.handleMouseDown, this);
         this.map.dragging.enable();
-        this.map.boxZoom.removeHooks();
+        if (!this.options.enableShiftDrag) {
+            this.map.boxZoom.removeHooks();
+        }
 
         L.DomUtil.removeClass(this.map._container,'leaflet-control-boxzoom-active');
     },
