@@ -1,0 +1,16 @@
+{
+  "name": "leaflet-control-boxzoom",
+  "version": "1.5.0",
+  "description": "A Leaflet control to do a box zoom",
+  "main": "dist/leaflet-control-boxzoom.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregallensworth/L.Control.BoxZoom.git"
+  },
+  "author": "gregallensworth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gregallensworth/L.Control.BoxZoom/issues"
+  },
+  "homepage": "https://github.com/gregallensworth/L.Control.BoxZoom#readme"
+}
