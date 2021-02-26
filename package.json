@@ -3,6 +3,7 @@
   "version": "1.5.0",
   "description": "A Leaflet control to do a box zoom",
   "main": "dist/leaflet-control-boxzoom.js",
+  "types": "dist/leaflet-control-boxzoom.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gregallensworth/L.Control.BoxZoom.git"
