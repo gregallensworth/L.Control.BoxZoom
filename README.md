@@ -10,7 +10,7 @@ Beyond that, this control also supports improvements over the stock box zoom beh
 
 ## Super Quick
 
-For the impatient, you can copy-paste from the live demo at http://gregallensworth.github.io/L.Control.BoxZoom/
+For the impatient, you can copy-paste from the live demo at https://gregallensworth.github.io/L.Control.BoxZoom/
 
 ## More Detailed
 
